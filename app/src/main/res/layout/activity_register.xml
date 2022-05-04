@@ -10,7 +10,7 @@
         android:id="@+id/registrationTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="30dp"
         android:text="@string/registration"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -26,8 +26,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registrationTextView"
-        app:layout_constraintVertical_bias="0.07"
-        tools:layout_editor_absoluteX="-25dp" />
+        app:layout_constraintVertical_bias="0.028" />
 
 
     <EditText
@@ -39,8 +38,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameEditText"
-        app:layout_constraintVertical_bias="0.07"
-        tools:layout_editor_absoluteX="-25dp" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -51,8 +49,7 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmailEditText"
-        app:layout_constraintVertical_bias="0.07"
-        tools:layout_editor_absoluteX="-25dp" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <EditText
         android:id="@+id/passwordAgainEditText"
@@ -63,8 +60,62 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
-        app:layout_constraintVertical_bias="0.07"
-        tools:layout_editor_absoluteX="-25dp" />
+        app:layout_constraintVertical_bias="0.028" />
+
+
+    <EditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordAgainEditText"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <Spinner
+        android:id="@+id/phoneSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditText"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/address"
+        android:inputType="textPostalAddress|textMultiLine"
+        android:maxLines="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneSpinner"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <RadioGroup
+        android:id="@+id/accountTypeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressEditText"
+        app:layout_constraintVertical_bias="0.15">
+
+        <RadioButton
+            android:id="@+id/buyerRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/buyer" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/seller" />
+
+
+    </RadioGroup>
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -74,15 +125,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordAgainEditText"
-        app:layout_constraintVertical_bias="0.13999999">
+        app:layout_constraintTop_toBottomOf="@+id/accountTypeGroup"
+        app:layout_constraintVertical_bias="0.028">
+
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/registration"
             android:onClick="register"
-            />
+            android:text="@string/registration" />
 
         <Button
             android:layout_width="wrap_content"

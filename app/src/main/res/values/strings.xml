@@ -8,4 +8,15 @@
     <string name="email_address">Email cím</string>
     <string name="password_again">Jelszó megerősítése</string>
     <string name="cancel">Mégse</string>
+    <string name="phone_number">Telefonszám</string>
+    <string name="address">Postai cím</string>
+    <string name="buyer">Vásárló</string>
+    <string name="seller">Eladó</string>
+    <string name="product_description">Termék leírás.</string>
+    <string-array name="phone_modes">
+        <item>Otthoni</item>
+        <item>Munkahelyi</item>
+        <item>Mobil</item>
+        <item>Egyéb</item>
+    </string-array>
 </resources>

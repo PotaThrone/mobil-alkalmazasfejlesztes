@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ArfolyamInformalo">
         <activity
+            android:name=".ExchangeRateListActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
