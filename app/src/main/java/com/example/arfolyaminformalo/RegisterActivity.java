@@ -1,5 +1,6 @@
 package com.example.arfolyaminformalo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,12 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String LOG_TAG = RegisterActivity.class.getName();
@@ -29,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     RadioGroup accountTypeGroup;
 
     private SharedPreferences preferences;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +73,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        mAuth = FirebaseAuth.getInstance();
+
     }
 
     public void register(View view) {
@@ -88,7 +98,23 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
         Log.i(LOG_TAG, "Regisztrált: "+ userName + ", email: "+ email);
         // TODO: A regisztrációs funkciók
-        startShopping();
+        //startShopping();
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this,
+                new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Log.d(LOG_TAG, "User created ");
+                    startShopping();
+                }else{
+                    Log.d(LOG_TAG, "User isnt created ");
+                    Toast.makeText(RegisterActivity.this,
+                            "User isnt created: " + task.getException().getMessage(),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     public void cancel(View view) {
@@ -97,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     private void startShopping(){
         Intent intent = new Intent(this, ExchangeRateListActivity.class);
-        intent.putExtra("SECRET_KEY", SECRET_KEY);
+        //intent.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(intent);
     }
 

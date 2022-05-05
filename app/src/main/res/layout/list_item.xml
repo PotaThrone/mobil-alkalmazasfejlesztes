@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true" />
+
+        <TextView
+            android:id="@+id/itemNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemImage"
+            android:padding="8dp"
+            android:text="Valuta"
+            android:textColor="?android:textColorSecondary" />
+
+
+        <TextView
+            android:id="@+id/shortNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemNameText"
+            android:padding="8dp"
+            />
+
+        <TextView
+            android:id="@+id/buyPriceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shortNameText"
+            android:layout_marginBottom="12dp"
+            android:padding="8dp"
+            android:text="Vétel"
+            />
+
+        <TextView
+            android:id="@+id/sellPriceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buyPriceText"
+            android:layout_marginBottom="12dp"
+            android:padding="8dp"
+            android:text="Eladás"
+           />
+
+
+        <ImageView
+            android:id="@+id/currencyChartImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sellPriceText"
+            android:adjustViewBounds="true" />
+
+        <Button
+            android:id="@+id/subscribeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currencyChartImage"
+            android:text="@string/subscribe"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

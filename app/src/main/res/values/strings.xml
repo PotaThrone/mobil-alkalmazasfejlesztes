@@ -13,10 +13,72 @@
     <string name="buyer">Vásárló</string>
     <string name="seller">Eladó</string>
     <string name="product_description">Termék leírás.</string>
+    <string name="guest_login">Bejelentkezés vendégként</string>
+    <string name="login_google">Bejelentkezés google fiókkal</string>
+    <string name="default_web_client_id2">696093656145-se49eikhaforbsas4ubeskp8s28le7kl.apps.googleusercontent.com</string>
+    <string name="subscribe">Követés</string>
     <string-array name="phone_modes">
         <item>Otthoni</item>
         <item>Munkahelyi</item>
         <item>Mobil</item>
         <item>Egyéb</item>
     </string-array>
+
+    <string-array name="currency_item_names">
+        <item>Euró</item>
+        <item>USA-dollár</item>
+        <item>Japán jen</item>
+        <item>Angol font</item>
+        <item>Svájci frank</item>
+        <item>Török líra</item>
+    </string-array>
+
+    <string-array name="curreny_item_shortnames">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>JPY</item>
+        <item>GBP</item>
+        <item>CHF</item>
+        <item>TRY</item>
+    </string-array>
+
+    <array name="currency_item_buyprice">
+        <item>385 Ft</item>
+        <item>363 Ft</item>
+        <item>2.82 Ft</item>
+        <item>457.44 Ft</item>
+        <item>370 Ft</item>
+        <item>26.46 Ft</item>
+    </array>
+
+    <array name="currency_item_sellprice">
+        <item>373.48 Ft</item>
+        <item>354.88 Ft</item>
+        <item>2.69 Ft</item>
+        <item>437.91 Ft</item>
+        <item>359.08 Ft</item>
+        <item>21.65 Ft</item>
+    </array>
+
+
+    <array name="currency_item_images">
+        <item>@drawable/eur</item>
+        <item>@drawable/usd</item>
+        <item>@drawable/jpy</item>
+        <item>@drawable/gbp</item>
+        <item>@drawable/frank</item>
+        <item>@drawable/lira</item>
+    </array>
+
+
+    <array name="currency_item_chartimages">
+        <item>@drawable/eur_chart</item>
+        <item>@drawable/usd_chart</item>
+        <item>@drawable/jpy_chart</item>
+        <item>@drawable/gbp_chart</item>
+        <item>@drawable/chf_chart</item>
+        <item>@drawable/try_chart</item>
+    </array>
+
+
 </resources>
