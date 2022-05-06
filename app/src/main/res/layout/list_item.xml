@@ -29,8 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemNameText"
-            android:padding="8dp"
-            />
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/buyPriceText"
@@ -39,8 +38,7 @@
             android:layout_below="@id/shortNameText"
             android:layout_marginBottom="12dp"
             android:padding="8dp"
-            android:text="Vétel"
-            />
+            android:text="Vétel" />
 
         <TextView
             android:id="@+id/sellPriceText"
@@ -49,8 +47,7 @@
             android:layout_below="@id/buyPriceText"
             android:layout_marginBottom="12dp"
             android:padding="8dp"
-            android:text="Eladás"
-           />
+            android:text="Eladás" />
 
 
         <ImageView
@@ -60,14 +57,27 @@
             android:layout_below="@id/sellPriceText"
             android:adjustViewBounds="true" />
 
-        <Button
-            android:id="@+id/subscribeButton"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/currencyChartImage"
-            android:text="@string/subscribe"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true">
 
+            <Button
+                android:id="@+id/subscribeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/subscribe" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/delete" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

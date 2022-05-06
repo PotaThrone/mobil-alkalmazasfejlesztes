@@ -17,6 +17,7 @@
     <string name="login_google">Bejelentkezés google fiókkal</string>
     <string name="default_web_client_id2">696093656145-se49eikhaforbsas4ubeskp8s28le7kl.apps.googleusercontent.com</string>
     <string name="subscribe">Követés</string>
+    <string name="delete">Törlés</string>
     <string-array name="phone_modes">
         <item>Otthoni</item>
         <item>Munkahelyi</item>
@@ -66,7 +67,7 @@
         <item>@drawable/usd</item>
         <item>@drawable/jpy</item>
         <item>@drawable/gbp</item>
-        <item>@drawable/frank</item>
+        <item>@drawable/frank </item>
         <item>@drawable/lira</item>
     </array>
 
