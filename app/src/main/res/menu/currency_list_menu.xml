@@ -8,6 +8,12 @@
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"
         />
+    <item
+        android:id="@+id/refresh"
+        android:title="Frissités"
+        android:icon="@drawable/ic_refresh"
+        app:showAsAction="always"
+        />
 
     <item
         android:id="@+id/subcriptions"
@@ -17,12 +23,6 @@
         app:actionLayout="@layout/custom_menu_item"
         />
 
-    <item
-        android:id="@+id/view_selector"
-        android:title="Nézet"
-        android:icon="@drawable/ic_view_grid"
-        app:showAsAction="always"
-        />
 
     <item
         android:id="@+id/source_button"
@@ -32,8 +32,8 @@
 
 
     <item
-        android:id="@+id/setting_button"
-        android:title="Beállítások"
+        android:id="@+id/create_button"
+        android:title="Létrehozás"
         app:showAsAction="never"
         />
 

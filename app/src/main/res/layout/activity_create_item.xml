@@ -4,62 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".CreateItemActivity">
 
     <TextView
-        android:id="@+id/registrationTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/registration"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+    android:id="@+id/nameTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    android:text="Új valuta hozzáadása"
+    android:textAlignment="center"
+    android:textSize="24sp"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/userNameEditText"
+        android:id="@+id/currencyNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/username"
-        android:inputType="textPersonName"
+        android:hint="Valuta neve"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registrationTextView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
         app:layout_constraintVertical_bias="0.028" />
 
 
     <EditText
-        android:id="@+id/userEmailEditText"
+        android:id="@+id/shortNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/email_address"
-        android:inputType="textEmailAddress"
+        android:hint="Valuta rövidítése"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/currencyNameEditText"
         app:layout_constraintVertical_bias="0.028" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/buyPriceEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
+        android:hint="Vétel ára (Ft)"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEmailEditText"
+        app:layout_constraintTop_toBottomOf="@+id/shortNameEditText"
         app:layout_constraintVertical_bias="0.028" />
 
     <EditText
-        android:id="@+id/passwordAgainEditText"
+        android:id="@+id/sellPriceEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/password_again"
-        android:inputType="textPassword"
+        android:hint="Eladás ára (Ft)"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+        app:layout_constraintTop_toBottomOf="@+id/buyPriceEditText"
         app:layout_constraintVertical_bias="0.028" />
 
     <LinearLayout
@@ -70,15 +70,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordAgainEditText"
+        app:layout_constraintTop_toBottomOf="@+id/sellPriceEditText"
         app:layout_constraintVertical_bias="0.028">
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="register"
-            android:text="@string/registration" />
+            android:onClick="createCurrency"
+            android:text="Létrehozás" />
 
         <Button
             android:layout_width="wrap_content"
@@ -87,6 +87,5 @@
             android:onClick="cancel"
             android:text="@string/cancel" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

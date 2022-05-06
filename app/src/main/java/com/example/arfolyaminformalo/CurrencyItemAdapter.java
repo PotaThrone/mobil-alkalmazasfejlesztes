@@ -129,12 +129,15 @@ public class CurrencyItemAdapter extends RecyclerView.Adapter<CurrencyItemAdapte
 
             Glide.with(mContext).load(currentItem.getCurrencyImage()).into(mItemImage);
             Glide.with(mContext).load(currentItem.getChartImage()).into(mCurrencyChartImage);
-            itemView.findViewById(R.id.subscribeButton).setOnClickListener(view -> {
-                Log.d("Activity","Subscribe clicked!");
+            itemView.findViewById(R.id.subscribeButton).setOnClickListener(view -> { ;
                 ((ExchangeRateListActivity)mContext).updateAlertIcon(currentItem);
             });
             itemView.findViewById(R.id.deleteButton).setOnClickListener(view -> {
                 ((ExchangeRateListActivity)mContext).deleteItem(currentItem);
+            });
+
+            itemView.findViewById(R.id.updateButton).setOnClickListener(view -> {
+                ((ExchangeRateListActivity)mContext).updateItem(currentItem);
             });
         }
     }

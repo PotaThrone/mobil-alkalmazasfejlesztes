@@ -34,14 +34,11 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Currency;
 
 public class ExchangeRateListActivity extends AppCompatActivity {
     private static final String LOG_TAG = ExchangeRateListActivity.class.getName();
     private FirebaseUser user;
     private FirebaseAuth mAuth;
-
-    private TextView sourceTextView;
 
     private RecyclerView mRecyclerView;
     private ArrayList<CurrencyItem> mItemList;
@@ -55,7 +52,6 @@ public class ExchangeRateListActivity extends AppCompatActivity {
 
     private NotificationHandler mNotificationHandler;
 
-    private int grindNumber = 1;
     private int subscriptionCount = 0;
     private boolean viewRow = true;
 
@@ -75,7 +71,7 @@ public class ExchangeRateListActivity extends AppCompatActivity {
 
 
         mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, grindNumber));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         mItemList = new ArrayList<>();
 
         mAdapter = new CurrencyItemAdapter(this, mItemList);
@@ -83,6 +79,9 @@ public class ExchangeRateListActivity extends AppCompatActivity {
 
         mFirestore = FirebaseFirestore.getInstance();
         mItems = mFirestore.collection("Items");
+        for (CurrencyItem item : mItemList){
+            item.setSubscribed(false);
+        }
 
         queryData();
 
@@ -92,6 +91,7 @@ public class ExchangeRateListActivity extends AppCompatActivity {
 
     private void queryData() {
         mItemList.clear();
+
 
         mItems.orderBy("subscribed", Query.Direction.DESCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -105,6 +105,24 @@ public class ExchangeRateListActivity extends AppCompatActivity {
                     initalizeData();
                     queryData();
                 }
+
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+
+        mItems.whereEqualTo("subscribed", true).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                subscriptionCount = 0;
+                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                    subscriptionCount++;
+                }
+                if (0 < subscriptionCount) {
+                    contentTextView.setText(String.valueOf(subscriptionCount));
+                } else {
+                    contentTextView.setText("");
+                }
+                redCircle.setVisibility((subscriptionCount > 0) ? VISIBLE : GONE);
 
                 mAdapter.notifyDataSetChanged();
             }
@@ -180,27 +198,23 @@ public class ExchangeRateListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.log_out_button:
-                Log.d(LOG_TAG, "Log out clicked!");
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 return true;
-            case R.id.setting_button:
-                Log.d(LOG_TAG, "Settings clicked!");
+            case R.id.create_button:
+                Intent createIntent = new Intent(this,CreateItemActivity.class );
+                startActivity(createIntent);
+                return true;
+            case R.id.refresh:
+                queryData();
+                mAdapter.notifyDataSetChanged();
                 return true;
             case R.id.source_button:
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.napiarfolyam.hu"));
                 startActivity(browserIntent);
                 return true;
             case R.id.subcriptions:
-                Log.d(LOG_TAG, "Subcriptionst clicked!");
-                return true;
-            case R.id.view_selector:
-                Log.d(LOG_TAG, "View selector clicked!");
-                if (viewRow) {
-                    changeSpanCount(item, R.drawable.ic_view_grid, 1);
-                } else {
-                    changeSpanCount(item, R.drawable.ic_view, 2);
-                }
+                showSubscriptions();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -208,12 +222,22 @@ public class ExchangeRateListActivity extends AppCompatActivity {
 
     }
 
-    private void changeSpanCount(MenuItem item, int drawableId, int spanCount) {
-        viewRow = !viewRow;
-        item.setIcon(drawableId);
-        GridLayoutManager layoutManager = (GridLayoutManager) mRecyclerView.getLayoutManager();
-        layoutManager.setSpanCount(spanCount);
+    private void showSubscriptions() {
+        mItemList.clear();
+        mItems.whereEqualTo("subscribed", true).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                    CurrencyItem item = document.toObject(CurrencyItem.class);
+                    item.setId(document.getId());
+                    mItemList.add(item);
+                }
+
+                mAdapter.notifyDataSetChanged();
+            }
+        });
     }
+
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
@@ -250,6 +274,16 @@ public class ExchangeRateListActivity extends AppCompatActivity {
         });
 
         mNotificationHandler.send(item.getName());
+        queryData();
+    }
+
+    public void updateItem(CurrencyItem item) {
+        Intent updateIntent = new Intent(this, UpdateItemActivity.class);
+        Bundle b = new Bundle();
+        b.putString("id",item._getId());
+        updateIntent.putExtras(b);
+        startActivity(updateIntent);
+
         queryData();
     }
 }

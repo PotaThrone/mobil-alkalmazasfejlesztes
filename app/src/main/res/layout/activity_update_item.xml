@@ -4,62 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".UpdateItemActivity">
 
     <TextView
-        android:id="@+id/registrationTextView"
+        android:id="@+id/nameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/registration"
+        android:text="Valuta módosítása"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/userNameEditText"
+        android:id="@+id/currencyNameUpdateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/username"
-        android:inputType="textPersonName"
+        android:hint="Valuta neve"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registrationTextView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
         app:layout_constraintVertical_bias="0.028" />
 
 
     <EditText
-        android:id="@+id/userEmailEditText"
+        android:id="@+id/shortNameUpdateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/email_address"
-        android:inputType="textEmailAddress"
+        android:hint="Valuta rövidítése"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/currencyNameUpdateEditText"
         app:layout_constraintVertical_bias="0.028" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/buyPriceUpdateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
+        android:hint="Vétel ára (Ft)"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEmailEditText"
+        app:layout_constraintTop_toBottomOf="@+id/shortNameUpdateEditText"
         app:layout_constraintVertical_bias="0.028" />
 
     <EditText
-        android:id="@+id/passwordAgainEditText"
+        android:id="@+id/sellPriceUpdateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/password_again"
-        android:inputType="textPassword"
+        android:hint="Eladás ára (Ft)"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+        app:layout_constraintTop_toBottomOf="@+id/buyPriceUpdateEditText"
         app:layout_constraintVertical_bias="0.028" />
 
     <LinearLayout
@@ -70,15 +70,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordAgainEditText"
+        app:layout_constraintTop_toBottomOf="@+id/sellPriceUpdateEditText"
         app:layout_constraintVertical_bias="0.028">
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="register"
-            android:text="@string/registration" />
+            android:onClick="updateCurrency"
+            android:text="Módosítás" />
 
         <Button
             android:layout_width="wrap_content"
@@ -87,6 +87,5 @@
             android:onClick="cancel"
             android:text="@string/cancel" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

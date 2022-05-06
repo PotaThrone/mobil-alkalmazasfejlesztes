@@ -11,6 +11,17 @@ public class CurrencyItem {
     private boolean subscribed;
 
 
+    public CurrencyItem(String name, String shortName, String buyPrice, String sellPrice) {
+        this.name = name;
+        this.shortName = shortName;
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
+        this.subscribed = false;
+    }
+
+    public CurrencyItem() {
+    }
+
     public CurrencyItem(String name, String shortName, String buyPrice, String sellPrice, int currencyImage, int chartImage, boolean subscribed) {
         this.name = name;
         this.shortName = shortName;
@@ -21,7 +32,9 @@ public class CurrencyItem {
         this.subscribed = subscribed;
     }
 
-    public CurrencyItem() {
+
+    public void setSubscribed(boolean subscribed) {
+        this.subscribed = subscribed;
     }
 
     public String getName() {
