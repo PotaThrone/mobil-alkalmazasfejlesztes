@@ -48,9 +48,16 @@ public class CurrencyItemAdapter extends RecyclerView.Adapter<CurrencyItemAdapte
         holder.bindTo(currentItem);
 
         if(holder.getAdapterPosition() > lastPosition){
-            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.slide_in_row);
-            holder.itemView.startAnimation(animation);
-            lastPosition = holder.getAdapterPosition();
+            if(lastPosition / 2 == 0){
+                Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.slide_from_other_direction);
+                holder.itemView.startAnimation(animation);
+                lastPosition = holder.getAdapterPosition();
+            }else{
+                Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.slide_in_row);
+                holder.itemView.startAnimation(animation);
+                lastPosition = holder.getAdapterPosition();
+            }
+
         }
     }
 

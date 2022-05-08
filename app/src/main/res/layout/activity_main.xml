@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/name"
-        android:inputType="text"
+        android:hint="Email cim"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintVertical_bias="0.043"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -27,58 +27,58 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
-        app:layout_constraintVertical_bias="0.057"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/login"
         android:onClick="login"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/guestLoginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/guest_login"
         android:onClick="loginAsGuest"
+        android:text="@string/guest_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.005" />
 
     <Button
         android:id="@+id/googleSignInButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/login_google"
         android:onClick="loginWithGoogle"
+        android:text="@string/login_google"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guestLoginButton"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/registration"
         android:onClick="register"
+        android:text="@string/registration"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleSignInButton"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

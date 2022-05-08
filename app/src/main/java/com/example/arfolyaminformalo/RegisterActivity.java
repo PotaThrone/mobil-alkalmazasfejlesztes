@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         String userName = preferences.getString("userName", "");
         String password = preferences.getString("password", "");
 
-        userNameEditText.setText(userName);
+        userEmailEditText.setText(userName);
         passwordEditText.setText(password);
         passwordConfirmedEditText.setText(password);
 
@@ -122,6 +122,10 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onPause() {
         super.onPause();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("userName",userEmailEditText.getText().toString());
+        editor.putString("password",passwordEditText.getText().toString());
+        editor.apply();
     }
 
     @Override
